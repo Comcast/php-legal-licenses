@@ -2,30 +2,45 @@
 
 Thank you for considering helping out!
 
-Looking to update information or feature your project? Feel free to make the change yourself. You're in the right place to get started.
+We love to see contributions to the project and have tried to make it
+easy to do so. If you would like to contribute code to this project
+you can do so through GitHub by forking the repository and sending a
+pull request.
 
-First, please read the [code of conduct](CODE_OF_CONDUCT.md). We take it very seriously!
+## Pull Requests
+-------------
 
-Next, if you want to help out, do the following:
+* should be from a forked project with an appropriate branch name
+* should be narrowly focused with no more than 3 or 4 logical commits
+* when possible, address no more than one issue
+* should be reviewable in the GitHub code review tool
+* should be linked to any issues it relates to (ie issue number after
+(#) in commit messages or pull request message)
 
-1. Fork the project.
-2. Make a feature branch with the name of your change.
-3. Make a change.
-4. Commit your code.
-5. Issue a Pull Request.
+Expect a thorough review process for any pull requests that add functionality
+or change the behavior of the application. We encourage you to sketch your
+approach in writing on a relevant issue (or creating such an issue if needed)
+before starting to code, in order to save time and frustration all around. 
 
-Once your PR is issued, we will review your work and decide on adding it to the project!
+## Commit messages
+---------------
 
-For more details about contributing to GitHub projects see
-http://gun.io/blog/how-to-github-fork-branch-and-pull-request/
+Please follow the advice of the
+[Phonegap guys](https://github.com/phonegap/phonegap/wiki/Git-Commit-Message-Format)
+when crafting commit messages. The advice basically comes down to:
 
-## Adding a New Project
+* First line should be maximum 50 characters long
+* It should summarise the change and use imperative present tense
+* The rest of the commit message should come after a blank line
+* We encourage you to use Markdown syntax in the rest of the commit
+message
+* Preferably keep to an 72 character limit on lines in the rest of the
+message.
 
-If your change is adding your newly released Comcast Open Source project to https://comcast.github.io, here are the specific changes to make to [index.html](/index.html) in your PR:
-
-1. Add your project to the appropriate category in the main list of projects
-2. Add your project to the top of “Our Newest Projects”
-3. Remove the last project from “Our Newest Projects”
+If a commit is related to a particular issue, put the issue number
+after a hash (#) somewhere in the detail. You can put the issue number
+in the first line summary, but only if you can also fit in a useful
+summary of what was changed in the commit.
 
 ## Contributor License Agreement
 
