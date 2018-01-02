@@ -1,3 +1,10 @@
+<p align="center">
+    <a href="https://styleci.io/repos/106569641"><img src="https://styleci.io/repos/106569641/shield" alt="StyleCI Status"></a>
+    <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/d/total.svg" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/v/stable.svg" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/license.svg" alt="License"></a>
+</p>
+
 # PHP Legal Licenses
 
 Legal Licenses is a utility to help generate a single text file containing all of the important information about a project's dependencies. In some organizations, the use of Open Source Software (OSS) is strictly controlled and audited, and requires having every OSS library simply documented.
