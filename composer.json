@@ -10,7 +10,7 @@
         "binary"
     ],
     "homepage": "https://github.com/Comcast/php-legal-licenses",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Adam Marshall",
