@@ -2,12 +2,10 @@
 
 namespace Comcast\PhpLegalLicenses\Console;
 
-use RuntimeException;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ListCommand extends Command
+class ListCommand extends DependencyLicenseCommand
 {
     /**
      * Configure the command options.
@@ -35,33 +33,6 @@ class ListCommand extends Command
         $packages = $this->parseComposerLockFile();
         $dependencies = $packages['packages'];
         $this->outputDependencyLicenses($dependencies, $output);
-    }
-    
-    /**
-     * Verify that the composer.lock file exists.
-     *
-     * @return void
-     */
-    protected function verifyComposerLockFilePresent()
-    {
-        if (is_file(getcwd().'/composer.lock')) {
-            return;
-        }
-        
-        throw new RuntimeException('Composer Lock file missing! Please run composer install and try again.');
-    }
-    
-    /**
-     * Parses the composer.lock file to retrieve all installed packages.
-     *
-     * @return array
-     */
-    protected function parseComposerLockFile()
-    {
-        $path = getcwd().'/composer.lock';
-        $contents = file_get_contents($path);
-        
-        return json_decode($contents, true);
     }
     
     /**
