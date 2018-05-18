@@ -29,11 +29,10 @@ class GenerateCommand extends DependencyLicenseCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->verifyComposerLockFilePresent($output);
-        $packages = $this->parseComposerLockFile();
+        $dependencies = $this->getDependencyList();
 
         $output->writeln('<info>Generating Licenses file...</info>');
-        $this->generateLicensesText($packages['packages']);
+        $this->generateLicensesText($dependencies);
 
         $output->writeln('<info>Done!</info>');
     }

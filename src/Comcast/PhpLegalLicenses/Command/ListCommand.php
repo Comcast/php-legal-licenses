@@ -29,9 +29,7 @@ class ListCommand extends DependencyLicenseCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->verifyComposerLockFilePresent($output);
-        $packages = $this->parseComposerLockFile();
-        $dependencies = $packages['packages'];
+        $dependencies = $this->getDependencyList();
         $this->outputDependencyLicenses($dependencies, $output);
     }
     

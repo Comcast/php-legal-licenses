@@ -8,6 +8,19 @@ use Symfony\Component\Console\Command\Command;
 class DependencyLicenseCommand extends Command
 {
     /**
+     * Generates a list of dependencies from a project's composer.lock file.
+     *
+     * @return array
+     */
+    protected function getDependencyList()
+    {
+        $this->verifyComposerLockFilePresent();
+        $packages = $this->parseComposerLockFile();
+        $dependencies = $packages['packages'];
+        return $dependencies;
+    }
+    
+    /**
      * Verify that the composer.lock file exists.
      *
      * @return void
