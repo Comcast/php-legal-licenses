@@ -11,5 +11,5 @@ if (file_exists(__DIR__.'/../vendor/autoload.php')) {
 
 $app = new Symfony\Component\Console\Application('PHP Legal Licenses', '1.1.0');
 $app->add(new Comcast\PhpLegalLicenses\Console\GenerateCommand);
-$app->add(new Comcast\PhpLegalLicenses\Console\ListCommand);
+$app->add(new Comcast\PhpLegalLicenses\Console\ShowCommand);
 $app->run();

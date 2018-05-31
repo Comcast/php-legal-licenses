@@ -5,7 +5,7 @@ namespace Comcast\PhpLegalLicenses\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ListCommand extends DependencyLicenseCommand
+class ShowCommand extends DependencyLicenseCommand
 {
     /**
      * Configure the command options.
@@ -15,8 +15,8 @@ class ListCommand extends DependencyLicenseCommand
     protected function configure()
     {
         $this
-        ->setName('list')
-        ->setDescription('List licenses used by project dependencies.');
+        ->setName('show')
+        ->setDescription('Show licenses used by project dependencies.');
     }
     
     /**
