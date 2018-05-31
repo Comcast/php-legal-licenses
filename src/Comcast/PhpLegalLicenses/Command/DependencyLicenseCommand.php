@@ -17,9 +17,10 @@ class DependencyLicenseCommand extends Command
         $this->verifyComposerLockFilePresent();
         $packages = $this->parseComposerLockFile();
         $dependencies = $packages['packages'];
+
         return $dependencies;
     }
-    
+
     /**
      * Verify that the composer.lock file exists.
      *
@@ -30,10 +31,10 @@ class DependencyLicenseCommand extends Command
         if (is_file(getcwd().'/composer.lock')) {
             return;
         }
-        
+
         throw new RuntimeException('Composer Lock file missing! Please run composer install and try again.');
     }
-    
+
     /**
      * Parses the composer.lock file to retrieve all installed packages.
      *
@@ -43,8 +44,7 @@ class DependencyLicenseCommand extends Command
     {
         $path = getcwd().'/composer.lock';
         $contents = file_get_contents($path);
-        
+
         return json_decode($contents, true);
     }
-    
 }

@@ -18,7 +18,7 @@ class ShowCommand extends DependencyLicenseCommand
         ->setName('show')
         ->setDescription('Show licenses used by project dependencies.');
     }
-    
+
     /**
      * Execute the command.
      *
@@ -32,7 +32,7 @@ class ShowCommand extends DependencyLicenseCommand
         $dependencies = $this->getDependencyList();
         $this->outputDependencyLicenses($dependencies, $output);
     }
-    
+
     /**
      * Generates Licenses list using packages retrieved from composer.lock file.
      *
@@ -47,7 +47,7 @@ class ShowCommand extends DependencyLicenseCommand
             $output->writeln($text);
         }
     }
-    
+
     /**
      * Retrieves text containing version and license information for the specified dependency.
      *
@@ -60,10 +60,10 @@ class ShowCommand extends DependencyLicenseCommand
         $name = $dependency['name'];
         $version = $dependency['version'];
         $licenseNames = isset($dependency['license']) ? implode(', ', $dependency['license']) : 'Not configured.';
-        
+
         return $this->generateDependencyText($name, $version, $licenseNames);
     }
-    
+
     /**
      * Generate formatted line detailing the version and license information for a particular dependency.
      *
