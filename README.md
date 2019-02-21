@@ -32,6 +32,14 @@ $ php-legal-licenses generate
 > Done!
 ```
 
+You can also hide dependency version with `--hide-version` option:
+
+```
+$ php-legal-licenses generate --hide-version
+```
+
+
+
 ## Example Output
 Here is a snippet of the licenses file that would be generated for this utility itself:
 

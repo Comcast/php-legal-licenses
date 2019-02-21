@@ -9,7 +9,7 @@ if (file_exists(__DIR__.'/../vendor/autoload.php')) {
     require __DIR__.'/vendor/autoload.php';
 }
 
-$app = new Symfony\Component\Console\Application('PHP Legal Licenses', '1.1.0');
+$app = new Symfony\Component\Console\Application('PHP Legal Licenses', '1.2.0');
 $app->add(new Comcast\PhpLegalLicenses\Console\GenerateCommand);
 $app->add(new Comcast\PhpLegalLicenses\Console\ShowCommand);
 $app->run();
