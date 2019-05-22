@@ -1,4 +1,7 @@
 <p align="center">
+    <a href="https://gitlab.com/orediggerco/php-legal-licenses/commits/master"><img alt="pipeline status" src="https://gitlab.com/orediggerco/php-legal-licenses/badges/master/pipeline.svg" /></a>
+    <a href="https://gitlab.com/orediggerco/php-legal-licenses/commits/master"><img alt="coverage report" src="https://gitlab.com/orediggerco/php-legal-licenses/badges/master/coverage.svg" /></a>
+    <a href="https://bestpractices.coreinfrastructure.org/projects/2840"><img src="https://bestpractices.coreinfrastructure.org/projects/2840/badge"></a>
     <a href="https://styleci.io/repos/106569641"><img src="https://styleci.io/repos/106569641/shield" alt="StyleCI Status"></a>
     <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/d/total.svg" alt="Total Downloads"></a>
     <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/v/stable.svg" alt="Latest Stable Version"></a>
@@ -19,6 +22,12 @@ If you need a utility such as this for your place of business, chances are, you 
 composer global require comcast/php-legal-licenses
 ```
 
+You can however install this package into any other application that uses composer for dependency management.
+
+```
+composer require comcast/php-legal-licenses
+```
+
 ## Usage
 
 If you installed php-legal-licenses globally via composer, you should be able to run the script in any of your projects. Note, you must have run either `composer update` or `composer install` at least once, to create a `composer.lock` file.
@@ -37,8 +46,6 @@ You can also hide dependency version with `--hide-version` option:
 ```
 $ php-legal-licenses generate --hide-version
 ```
-
-
 
 ## Example Output
 Here is a snippet of the licenses file that would be generated for this utility itself:
@@ -80,4 +87,38 @@ Homepage: https://symfony.com
 Licenses Used: MIT
 
 ...
+```
+
+## Security Vulnerabilities
+Vulnerabilities or other security related issues should be logged as git issues in this project (_*without sensitive information*_). Full details with any sensitive information should be sent to php-legal-licenses@googlegroups.com. 
+
+## Updating
+To update to a newer version of Legal Licenses, simply use composer.
+
+### When installed globally:
+```
+composer global update # To update all globally installed packages
+
+composer global update comcast/php-legal-licenses # To update only this package
+```
+
+### When installed into an app:
+```
+composer update # To update all application dependencies
+
+composer update comcast/php-legal-licenses # To update only this package
+```
+
+## Uninstalling
+To uninstall this package, follow these directions using composer:
+
+If installed globally:
+```
+composer global remove comcast/php-legal-licenses
+```
+
+If installed as an application dependency:
+```
+cd project/path
+composer remove comcast/php-legal-licenses
 ```

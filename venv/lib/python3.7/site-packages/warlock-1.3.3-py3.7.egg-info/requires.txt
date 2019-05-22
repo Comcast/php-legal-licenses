@@ -1,0 +1,3 @@
+jsonschema<4,>=0.7
+jsonpatch<2,>=0.10
+six

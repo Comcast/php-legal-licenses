@@ -1,0 +1,5 @@
+symfony/console@v4.3.0 [MIT]
+symfony/polyfill-mbstring@v1.11.0 [MIT]
+symfony/polyfill-php73@v1.11.0 [MIT]
+symfony/process@v4.3.0 [MIT]
+symfony/service-contracts@v1.1.2 [MIT]

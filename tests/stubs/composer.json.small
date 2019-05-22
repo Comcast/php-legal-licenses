@@ -1,0 +1,43 @@
+{
+    "name": "comcast/php-legal-licenses",
+    "description": "A utility to generate a Licenses file containing the full license text for every dependency in your project for legal purposes.",
+    "type": "library",
+    "keywords": [
+        "licenses",
+        "license",
+        "legal",
+        "utility",
+        "binary"
+    ],
+    "homepage": "https://github.com/Comcast/php-legal-licenses",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Adam Marshall",
+            "email": "adam_marshall2@comcast.com",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Comcast/php-legal-licenses/issues"
+    },
+    "prefer-stable": true,
+    "require": {
+        "php": "^5.6 || ^7.0 || ^7.1",
+        "ext-json": "*",
+        "pds/skeleton": "*"
+    },
+    "bin": [
+        "bin/php-legal-licenses"
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+          }
+    }
+}

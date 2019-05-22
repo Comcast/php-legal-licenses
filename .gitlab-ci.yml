@@ -1,0 +1,104 @@
+stages:
+  - install_dependencies
+  - quality_control
+
+
+install_dependencies:
+  stage: install_dependencies
+  image: composer:latest
+  only:
+    - branches
+  script:
+    - composer install; tar -C ../ --exclude "$CI_PIPELINE_ID.tar.gz" -zcpf $CI_PIPELINE_ID.tar.gz --warning=no-file-changed $(basename $CI_PROJECT_DIR) || [[ $? -eq 1 ]];
+  artifacts:
+    paths:
+      - $CI_PIPELINE_ID.tar.gz
+    when: on_success
+    expire_in: 2 hours
+
+
+dependency_scanning:
+  stage: quality_control
+  image: docker:stable
+  dependencies:
+    - install_dependencies
+  variables:
+    GIT_STRATEGY: none
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  services:
+    - docker:stable-dind
+  script:
+    - tar -xzf $CI_PIPELINE_ID.tar.gz; cd php-legal-licenses
+    - docker run --interactive --rm --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock registry.gitlab.com/gitlab-org/security-products/dependency-scanning:${VERSION:-latest} /code
+  artifacts:
+    reports:
+      dependency_scanning: php-legal-licenses/gl-dependency-scanning-report.json
+  only:
+    refs:
+      - branches
+    variables:
+      - $GITLAB_FEATURES =~ /\bdependency_scanning\b/
+  except:
+    variables:
+      - $DEPENDENCY_SCANNING_DISABLED
+
+  
+sast:
+  stage: quality_control
+  image: docker:stable
+  only:
+    - branches
+  dependencies:
+  variables:
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  services:
+    - docker:stable-dind
+  before_script:
+    - mv $CI_PROJECT_DIR/bin/php-legal-licenses $CI_PROJECT_DIR/bin/php-legal-licenses.php
+  script:
+    - docker run --interactive --rm --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock registry.gitlab.com/gitlab-org/security-products/sast:${VERSION:-latest} /app/bin/run /code/src/Comcast/PhpLegalLicenses/Console
+  artifacts:
+    when: always
+    reports:
+      sast: src/Comcast/PhpLegalLicenses/Console/gl-sast-report.json
+
+
+sast:parse:
+  stage: quality_control
+  image: composer:latest
+  only:
+    - branches
+  allow_failure: true
+  before_script:
+    - composer global require psecio/parse
+    - export COMPOSER_HOME=$(composer config --list --global | grep "\[home\]" | sed --expression 's/\[home\] //')
+  script:
+    - $COMPOSER_HOME/vendor/bin/psecio-parse scan --format=json . > gl-sast-parse-report.json 2>&1
+  artifacts:
+    when: always
+    reports:
+      sast: gl-sast-parse-report.json
+
+
+sast:phan:
+  stage: quality_control
+  image: composer:latest
+  dependencies:
+    - install_dependencies
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - branches
+  allow_failure: true
+  before_script:
+    - composer global require phan/phan
+    - export COMPOSER_HOME=$(composer config --list --global | grep "\[home\]" | sed --expression 's/\[home\] //')
+    - tar -xzf $CI_PIPELINE_ID.tar.gz; cd php-legal-licenses
+  script:
+    - $COMPOSER_HOME/vendor/bin/phan --allow-polyfill-parser --output-mode json --project-root-directory $CI_PROJECT_DIR/php-legal-licenses > gl-sast-phan-report.json 2>&1
+  artifacts:
+    when: always
+    reports:
+      sast: php-legal-licenses/gl-sast-phan-report.json

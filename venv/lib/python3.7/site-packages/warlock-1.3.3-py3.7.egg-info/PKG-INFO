@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: warlock
+Version: 1.3.3
+Summary: Python object model built on JSON schema and JSON patch.
+Home-page: http://github.com/bcwaldon/warlock
+Author: Brian Waldon
+Author-email: bcwaldon@gmail.com
+Maintainer: Jan Willhaus
+Maintainer-email: mail@janwillhaus.de
+License: Apache-2.0
+Description: # Warlock — self-validating Python objects using JSON schema
+        
+        [![PyPI](https://img.shields.io/pypi/v/warlock.svg)][warlock]
+        [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/warlock.svg)][warlock]
+        [![PyPI - Downloads](https://img.shields.io/pypi/dw/warlock.svg)][pypistats]
+        
+        [![Build Status](https://travis-ci.org/bcwaldon/warlock.svg?branch=master)][ci-builds]
+        [![Coverage Status](https://coveralls.io/repos/github/bcwaldon/warlock/badge.svg?branch=master)][coveralls]
+        
+        ## Installation
+        
+        Warlock is [available on PyPI][warlock]:
+        
+        ```shell
+        pip install warlock
+        ```
+        
+        ## Usage
+        
+        1) Create your schema
+        
+            ```python
+            >>> schema = {
+                'name': 'Country',
+                'properties': {
+                    'name': {'type': 'string'},
+                    'abbreviation': {'type': 'string'},
+                    'population': {'type': 'integer'},
+                },
+                'additionalProperties': False,
+            }
+            ```
+        
+        2) Create a model
+        
+            ```python
+            >>> import warlock
+            >>> Country = warlock.model_factory(schema)
+            ```
+        
+        3) Create an object using your model
+        
+            ```python
+            >>> sweden = Country(name='Sweden', abbreviation='SE')
+            ```
+        
+        4) Let the object validate itself
+        
+            ```python
+            >>> sweden.name = 5
+            Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+            File "warlock/core.py", line 53, in __setattr__
+                raise InvalidOperation(msg)
+            warlock.core.InvalidOperation: Unable to set 'name' to '5'
+        
+            >>> sweden.overlord = 'Bears'
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+              File "warlock/core.py", line 53, in __setattr__
+                raise InvalidOperation(msg)
+            warlock.core.InvalidOperation: Unable to set 'overlord' to 'Bears'
+            ```
+        
+        5) Generate a [JSON Patch document](http://tools.ietf.org/html/draft-ietf-appsawg-json-patch) to track changes
+        
+            ```python
+            >>> sweden.population=9453000
+            >>> sweden.patch
+            '[{"path": "/population", "value": 9453000, "op": "add"}]'
+            ```
+        
+        [warlock]: https://pypi.org/project/warlock/
+        [pip]: https://pip.pypa.io/en/stable/
+        [ci-builds]: https://travis-ci.org/bcwaldon/warlock
+        [coveralls]: https://coveralls.io/github/bcwaldon/warlock?branch=master
+        [pypistats]: https://pypistats.org/packages/warlock
+        
+Keywords: JSON schema,JSON patch,model validation
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
