@@ -27,10 +27,12 @@ class ShowCommand extends DependencyLicenseCommand
      *
      * @return void
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $dependencies = $this->getDependencyList();
         $this->outputDependencyLicenses($dependencies, $output);
+
+        return 0;
     }
 
     /**
