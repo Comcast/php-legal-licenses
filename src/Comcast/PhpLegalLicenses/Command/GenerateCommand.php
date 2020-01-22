@@ -34,7 +34,7 @@ class GenerateCommand extends DependencyLicenseCommand
      *
      * @return void
      */
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->hideVersion = $input->getOption('hide-version');
         $dependencies = $this->getDependencyList();
