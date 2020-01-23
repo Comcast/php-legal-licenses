@@ -102,3 +102,19 @@ sast:phan:
     when: always
     reports:
       sast: php-legal-licenses/gl-sast-phan-report.json
+
+unit_tests:
+  stage: quality_control
+  image: homestead:latest
+  dependencies:
+    - install_dependencies
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - branches
+  allow_failure: false
+  before_script:
+    - tar -xzf $CI_PIPELINE_ID.tar.gz; cd php-legal-licenses
+  script:
+    - php -d memory_limit=512M vendor/bin/phpunit --testdox --configuration phpunit.xml --colors=never --stop-on-failure --coverage-html coverage-report.html
+    - cat coverage-report.html

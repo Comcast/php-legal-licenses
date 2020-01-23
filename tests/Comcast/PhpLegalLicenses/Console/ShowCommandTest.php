@@ -34,14 +34,14 @@ class ShowCommandTest extends TestCase
      */
     protected $output;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (!file_exists(getcwd().'/composer.lock')) {
             throw new LogicException('Tests must be run after composer install/update.');
         }
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         if (null === $this->output) {
             $this->output = new ConsoleOutput();
@@ -52,7 +52,7 @@ class ShowCommandTest extends TestCase
         }
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if (file_exists(getcwd().'/composer.lock.bak')) {
             rename(getcwd().'/composer.lock.bak', getcwd().'/composer.lock');

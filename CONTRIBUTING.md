@@ -1,11 +1,13 @@
 # How to Contribute
 
-Thank you for considering helping out!
+Thank you for helping out!
 
 We love to see contributions to the project and have tried to make it
 easy to do so. If you would like to contribute code to this project
 you can do so through GitHub by forking the repository and sending a
 pull request.
+
+You can also contribute to the project by reporting bugs and requesting new features! Submit a new Issue from the `Issues` menu and follow the Issue Template for Bugs or Feature Requests.
 
 ## Pull Requests
 -------------
@@ -14,6 +16,7 @@ pull request.
 * should be narrowly focused with no more than 3 or 4 logical commits
 * when possible, address no more than one issue
 * should be reviewable in the GitHub code review tool
+* should be editable by reviews/project members
 * should be linked to any issues it relates to (ie issue number after
 (#) in commit messages or pull request message)
 
@@ -21,6 +24,8 @@ Expect a thorough review process for any pull requests that add functionality
 or change the behavior of the application. We encourage you to sketch your
 approach in writing on a relevant issue (or creating such an issue if needed)
 before starting to code, in order to save time and frustration all around. 
+
+Also please add you name and or Github username to the `Contributors.md` file at the end of the `Code Authors` and `Issue Authors` (if you also submitted an Issue).
 
 ## Commit messages
 ---------------
