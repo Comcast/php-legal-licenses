@@ -38,7 +38,17 @@ You can also hide dependency version with `--hide-version` option:
 $ php-legal-licenses generate --hide-version
 ```
 
+You can output csv file with `--csv` option:
 
+```
+$ php-legal-licenses generate --csv
+```
+
+Or use both option:
+
+```
+$ php-legal-licenses generate --hide-version --csv
+```
 
 ## Example Output
 Here is a snippet of the licenses file that would be generated for this utility itself:
