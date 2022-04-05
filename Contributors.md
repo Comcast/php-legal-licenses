@@ -1,7 +1,7 @@
 # Contributors
 Below is a list of all contributors to the `Comcast/php-legal-licenses` project. Thank you all for your support!
 
-## Owners/Members
+## Owners/Maintainers
 - [Adam Marshall / @orediggerco](https://github.com/orediggerco) Author
 
 ## Code  Authors
@@ -20,5 +20,4 @@ Below is a list of all contributors to the `Comcast/php-legal-licenses` project.
 - [Matthias Günter / @matzeeable](https://github.com/matzeeable) 
 - [Matija Boban / @matijaboban](https://github.com/matijaboban) 
 - [Jonathan Shahen / @jonathan-shahen](https://github.com/jonathan-shahen)
-
-
+- [Michael Wikberg / @milkboy](https://github.com/milkboy)
