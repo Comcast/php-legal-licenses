@@ -13,6 +13,7 @@ Below is a list of all contributors to the `Comcast/php-legal-licenses` project.
 - [Matija Boban / @matijaboban](https://github.com/matijaboban) [Fix Commands for Symfony 5](https://github.com/Comcast/php-legal-licenses/pull/13)
 - [Gilmar Pupo / @gpupo](https://github.com/gpupo) [Add gitignore](https://github.com/Comcast/php-legal-licenses/pull/15)
 - [Jonathan Shahen / @jonathan-shahen](https://github.com/jonathan-shahen) [Support PHP 8](https://github.com/Comcast/php-legal-licenses/pull/19)
+- [Matt Armour / @MArmourTCCC](https://github.com/MArmourTCCC) [Add Support for Symfony 7](https://github.com/Comcast/php-legal-licenses/pull/25)
 
 ## Issue Authors
 - [Ben Whitten / @BWhitten](https://github.com/BWhitten) 
