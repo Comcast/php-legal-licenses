@@ -22,8 +22,8 @@
     "prefer-stable": true,
     "require": {
         "ext-json": "*",
-        "symfony/console": "~5.4.46|~6.0|~7.0",
-        "symfony/process": "~5.4.46|~6.0|~7.0"
+        "symfony/console": ">=5.4.46 < 6.0.0 || >=6.4.14 < 7.0.0 || >=7.1.7",
+        "symfony/process": ">=5.4.46 < 6.0.0 || >=6.4.14 < 7.0.0 || >=7.1.7"
     },
     "bin": [
         "bin/php-legal-licenses"
