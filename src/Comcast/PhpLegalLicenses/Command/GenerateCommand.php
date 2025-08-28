@@ -78,7 +78,7 @@ class GenerateCommand extends DependencyLicenseCommand
         $fp = fopen('licenses.csv', 'w');
         $title = ['name', 'version', 'source', 'license description'];
 
-        fputcsv($fp, $title);
+        fputcsv($fp, $title, ",", '"', "\\");
         foreach ($dependencies as $dependency) {
             $dependencyLists = [
                 $dependency['name'],
@@ -86,7 +86,7 @@ class GenerateCommand extends DependencyLicenseCommand
                 $dependency['source']['url'],
                 $this->getTextForDependency($dependency),
             ];
-            fputcsv($fp, $dependencyLists);
+            fputcsv($fp, $dependencyLists, ",", '"', "\\");
         }
         fclose($fp);
     }
