@@ -10,6 +10,13 @@ if (file_exists(__DIR__.'/../vendor/autoload.php')) {
 }
 
 $app = new Symfony\Component\Console\Application('PHP Legal Licenses', '1.2.0');
-$app->add(new Comcast\PhpLegalLicenses\Console\GenerateCommand);
-$app->add(new Comcast\PhpLegalLicenses\Console\ShowCommand);
+
+if (method_exists($app, 'addCommand')) {
+    $app->addCommand(new Comcast\PhpLegalLicenses\Console\GenerateCommand());
+    $app->addCommand(new Comcast\PhpLegalLicenses\Console\ShowCommand());
+} else {
+    $app->add(new Comcast\PhpLegalLicenses\Console\GenerateCommand());
+    $app->add(new Comcast\PhpLegalLicenses\Console\ShowCommand());
+}
+
 $app->run();
