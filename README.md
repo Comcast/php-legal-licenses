@@ -1,5 +1,4 @@
 <p align="center">
-    <a href="https://styleci.io/repos/106569641"><img src="https://styleci.io/repos/106569641/shield" alt="StyleCI Status"></a>
     <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/d/total.svg" alt="Total Downloads"></a>
     <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/v/stable.svg" alt="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/comcast/php-legal-licenses"><img src="https://poser.pugx.org/comcast/php-legal-licenses/license.svg" alt="License"></a>
