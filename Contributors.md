@@ -22,3 +22,4 @@ Below is a list of all contributors to the `Comcast/php-legal-licenses` project.
 - [Matija Boban / @matijaboban](https://github.com/matijaboban) 
 - [Jonathan Shahen / @jonathan-shahen](https://github.com/jonathan-shahen)
 - [Michael Wikberg / @milkboy](https://github.com/milkboy)
+- [Chris / @feamsr00](https://github.com/feamsr00)
