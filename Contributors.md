@@ -14,6 +14,7 @@ Below is a list of all contributors to the `Comcast/php-legal-licenses` project.
 - [Gilmar Pupo / @gpupo](https://github.com/gpupo) [Add gitignore](https://github.com/Comcast/php-legal-licenses/pull/15)
 - [Jonathan Shahen / @jonathan-shahen](https://github.com/jonathan-shahen) [Support PHP 8](https://github.com/Comcast/php-legal-licenses/pull/19)
 - [Matt Armour / @MArmourTCCC](https://github.com/MArmourTCCC) [Add Support for Symfony 7](https://github.com/Comcast/php-legal-licenses/pull/25)
+- [Niklas Wildenburg / @nikcani](https://github.com/nikcani) [Added escape parameter for fputcsv changes coming in PHP v9.0](https://github.com/Comcast/php-legal-licenses/pull/28)
 
 ## Issue Authors
 - [Ben Whitten / @BWhitten](https://github.com/BWhitten) 
